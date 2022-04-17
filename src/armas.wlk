@@ -12,6 +12,8 @@ object ballesta {
 	method usarArma() {
 		cantidadFlechas -= 1
 	}
+	
+	method cantidadFlechas() = cantidadFlechas
 }
 
 

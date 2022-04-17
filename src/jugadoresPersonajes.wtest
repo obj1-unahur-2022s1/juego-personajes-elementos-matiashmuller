@@ -11,7 +11,7 @@ test "Floki ataca el castilo con la ballesta y 10 flechas" {
 }
 
 
-test "Luisa" {
+test "1" {
 	
 	luisa.personajeActivo(mario)
 	luisa.aparecerElemento(aurora)
@@ -20,4 +20,34 @@ test "Luisa" {
 	assert.equals(45, luisa.personajeActivo().valorRecolectado())
 	assert.that(luisa.personajeActivo().estaFeliz())
 	assert.equals(170, castillo.nivelDeDefensa())
+}
+
+test "2" {
+	
+	floki.cambiarArma(jabalina)
+	luisa.personajeActivo(mario)
+	luisa.aparecerElemento(tipa)
+	luisa.personajeActivo(floki)
+	luisa.aparecerElemento(aurora)
+	luisa.aparecerElemento(castillo)
+	
+	assert.equals(16, mario.valorRecolectado())
+	assert.equals(9, tipa.altura())
+	assert.that(!mario.estaFeliz())
+	assert.that(!aurora.estaViva())
+	assert.equals(150, castillo.nivelDeDefensa())
+	assert.that(!jabalina.estaCargada())
+}
+
+test "3" {
+	
+	luisa.personajeActivo(floki)
+	luisa.aparecerElemento(aurora)
+	luisa.aparecerElemento(castillo)
+	
+	assert.equals(0, mario.valorRecolectado())
+	assert.that(aurora.estaViva())
+	assert.equals(146, castillo.nivelDeDefensa())
+	assert.that(ballesta.estaCargada())
+	assert.equals(8, ballesta.cantidadFlechas())
 }
